@@ -1,0 +1,40 @@
+#app {
+  height: 100%;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  margin-top: -10;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  background-color: #fff;
+  color: #000;
+  justify-content: center;
+}
+
+.swiper-slide a {
+  color: #000;
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 45vh;
+}
