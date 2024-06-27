@@ -57,16 +57,24 @@ export default function App() {
         onInit={(swiper) => setActiveSlideIndex(swiper.activeIndex)}
       >
         <SwiperSlide className="swiper-slide">
-          <a loading="lazy">Adam Bodicoat</a>
+          <div loading="lazy">
+            <a href="">Adam Bodicoat</a>
+          </div>
         </SwiperSlide>
         <SwiperSlide className="swiper-slide">
-          <a loading="lazy">Skills and Experience</a>
+          <div loading="lazy">
+            <a href="">Skills and Experience</a>
+          </div>
         </SwiperSlide>
         <SwiperSlide className="swiper-slide">
-          <a loading="lazy">Projects</a>
+          <div loading="lazy">
+            <a href="">Projects</a>
+          </div>
         </SwiperSlide>
         <SwiperSlide className="swiper-slide">
-          <a loading="lazy">Contact</a>
+          <div loading="lazy">
+            <a href="">Contact</a>
+          </div>
         </SwiperSlide>
       </Swiper>
     </div>
