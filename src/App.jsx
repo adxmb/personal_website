@@ -8,56 +8,32 @@ import { EffectCube, Mousewheel } from "swiper/modules";
 
 export default function App() {
   const swiperRef = useRef(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  const updateSlides = () => {
-    if (swiperRef.current) {
-      const slidesPerView = Math.ceil(1);
-      const activeSlide = Math.floor(scrollPosition / window.innerHeight);
-      swiperRef.current.swiper.params.slidesPerView = slidesPerView;
-      swiperRef.current.swiper.update();
-      swiperRef.current.swiper.slideTo(activeSlide, 0);
-    }
-  };
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const position = window.scrollY;
-      setScrollPosition(position);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    if (swiperRef.current) {
+      swiperRef.current.swiper.on("slideChange", () => {
+        setActiveSlideIndex(swiperRef.current.swiper.activeIndex);
+      });
+    }
   }, []);
 
   useEffect(() => {
-    if (swiperRef.current) {
-      const slidesPerView = Math.ceil(window.innerHeight / 100);
-      const activeSlide = Math.floor(scrollPosition / window.innerHeight);
-      swiperRef.current.swiper.params.slidesPerView = slidesPerView;
-      swiperRef.current.swiper.slideTo(activeSlide);
-    }
-  }, [scrollPosition]);
-
-  const handleResize = () => {
-    if (swiperRef.current) {
-      updateSlides();
-      swiperRef.current.swiper.update();
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
+    const handleResize = () => {
+      if (swiperRef.current) {
+        // Update slidesPerView and ensure the correct slide is shown
+        swiperRef.current.swiper.params.slidesPerView = 1;
+        swiperRef.current.swiper.update();
+        swiperRef.current.swiper.slideTo(activeSlideIndex, 0, false); // Slide to the active index without animation
+      }
+    };
 
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [activeSlideIndex]);
 
   return (
     <div className="container">
@@ -74,13 +50,11 @@ export default function App() {
         mousewheel={true}
         speed={1000}
         loop={true}
-        noMouseWheelClass={"swiper-mousewheel"}
-        onResize={(swiper) => {
-          handleResize();
-        }}
         lazy={true}
         modules={[EffectCube, Mousewheel]}
         ref={swiperRef}
+        slidesPerView={1}
+        onInit={(swiper) => setActiveSlideIndex(swiper.activeIndex)}
       >
         <SwiperSlide className="swiper-slide">
           <a loading="lazy">Adam Bodicoat</a>
