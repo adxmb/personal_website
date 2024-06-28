@@ -1,82 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-cube";
-import "swiper/css/pagination";
-import "./styles.css";
-import { EffectCube, Mousewheel } from "swiper/modules";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Experience from "./Experience";
+import Projects from "./Projects";
+import Contact from "./Contact";
 
 export default function App() {
-  const swiperRef = useRef(null);
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.swiper.on("slideChange", () => {
-        setActiveSlideIndex(swiperRef.current.swiper.activeIndex);
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (swiperRef.current) {
-        // Update slidesPerView and ensure the correct slide is shown
-        swiperRef.current.swiper.params.slidesPerView = 1;
-        swiperRef.current.swiper.update();
-        swiperRef.current.swiper.slideTo(activeSlideIndex, 0, false); // Slide to the active index without animation
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [activeSlideIndex]);
-
   return (
-    <div className="container">
-      <Swiper
-        className="mySwiper"
-        effect={"cube"}
-        cubeEffect={{
-          shadow: false,
-          slideShadows: false,
-          shadowOffset: 0,
-          shadowScale: 0,
-        }}
-        direction={"vertical"}
-        mousewheel={true}
-        speed={1000}
-        loop={true}
-        lazy={true}
-        modules={[EffectCube, Mousewheel]}
-        ref={swiperRef}
-        slidesPerView={1}
-        onInit={(swiper) => setActiveSlideIndex(swiper.activeIndex)}
-      >
-        <SwiperSlide className="swiper-slide">
-          <div loading="lazy">
-            <a href="">Adam Bodicoat</a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div loading="lazy">
-            <a href="">Skills and Experience</a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div loading="lazy">
-            <a href="">Projects</a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div loading="lazy">
-            <a href="">Contact</a>
-          </div>
-        </SwiperSlide>
-      </Swiper>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/experience" element={<Experience />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 }
