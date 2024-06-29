@@ -10,6 +10,7 @@ export default function Home() {
   const swiperRef = useRef(null);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [fadeIn, setFadeIn] = useState(false);
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   useEffect(() => {
     if (swiperRef.current) {
@@ -39,10 +40,35 @@ export default function Home() {
     setFadeIn(true);
   }, []);
 
+  const handleMouseEnter = (e) => {
+    e.target.classList.add("hover-off");
+  };
+
+  const toggleMenuVisibility = (e) => {
+    setIsMenuVisible(!isMenuVisible);
+    isMenuVisible
+      ? e.target.classList.remove("cross")
+      : e.target.classList.add("cross");
+  };
+
   return (
     <div className="container">
+      <div class="menu">
+        {isMenuVisible && (
+          <div className="menu-items">
+            <a href="/about">About</a>
+            <a href="/experience">Experience</a>
+            <a href="/projects">Projects</a>
+            <a href="/contact">Contact</a>
+          </div>
+        )}
+      </div>
+      <div class="menu-button fade-in" onClick={toggleMenuVisibility}>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
       <Swiper
-        className="mySwiper"
         effect={"cube"}
         cubeEffect={{
           shadow: false,
@@ -62,24 +88,34 @@ export default function Home() {
       >
         <SwiperSlide className="swiper-slide">
           <div loading="lazy">
-            <a href="/about" className={fadeIn ? "fade-in" : ""}>
+            <a
+              href="/about"
+              className={fadeIn ? "fade-in" : ""}
+              onMouseEnter={handleMouseEnter}
+            >
               Adam Bodicoat
             </a>
           </div>
         </SwiperSlide>
         <SwiperSlide className="swiper-slide">
           <div loading="lazy">
-            <a href="/experience">Skills and Experience</a>
+            <a href="/experience" className="hover-off">
+              Skills and Experience
+            </a>
           </div>
         </SwiperSlide>
         <SwiperSlide className="swiper-slide">
           <div loading="lazy">
-            <a href="/projects">Projects</a>
+            <a href="/projects" className="hover-off">
+              Projects
+            </a>
           </div>
         </SwiperSlide>
         <SwiperSlide className="swiper-slide">
           <div loading="lazy">
-            <a href="/contact">Contact</a>
+            <a href="/contact" className="hover-off">
+              Contact
+            </a>
           </div>
         </SwiperSlide>
       </Swiper>

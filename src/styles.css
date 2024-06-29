@@ -17,6 +17,107 @@ body {
   padding: 0;
 }
 
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.menu {
+  min-width: 100px;
+  width: 70%;
+  max-width: 320px;
+}
+
+.menu-button {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 30px;
+  margin: 15px 10px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.menu-button .bar:nth-of-type(1) {
+  margin-top: 0px;
+}
+
+.menu-button .bar:nth-of-type(3) {
+  margin-top: 10px;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin: 10px auto;
+  background-color: #000;
+  border-radius: 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.menu-button:hover .bar:nth-of-type(1) {
+  transform: translateY(2.5px) rotate(0deg);
+}
+
+.menu-button:hover .bar:nth-of-type(2) {
+  opacity: 0.9;
+}
+
+.menu-button:hover .bar:nth-of-type(3) {
+  transform: translateY(-2.5px) rotate(0deg);
+}
+
+.cross .bar:nth-of-type(1) {
+  transform: translateY(9.5px) rotate(-45deg);
+}
+
+.cross .bar:nth-of-type(2) {
+  opacity: 0;
+}
+
+.cross .bar:nth-of-type(3) {
+  transform: translateY(-15px) rotate(45deg);
+}
+
+.cross:hover .bar:nth-of-type(1) {
+  transform: translateY(12.5px) rotate(-40.5deg);
+}
+
+.cross:hover .bar:nth-of-type(2) {
+  opacity: 0;
+}
+
+.cross:hover .bar:nth-of-type(3) {
+  transform: translateY(-12.5px) rotate(40.5deg);
+}
+
+.menu-items {
+  position: absolute;
+  left: 0;
+  margin-top: 115px;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.menu-items a {
+  margin-bottom: 40px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #000;
+}
+
+.menu-items a:hover {
+  text-decoration: underline;
+}
+
 .swiper {
   width: 100vw;
   height: 100vh;
@@ -79,8 +180,12 @@ body {
   animation: slideUnderline 0.3s ease-in-out forwards;
 }
 
-.swiper-slide div a:not(:hover)::after {
+.swiper-slide div a:not(.hover-off):not(:hover)::after {
   transition-delay: 0.3s;
+  animation: none;
+}
+
+.swiper-slide div a.hover-off:not(:hover)::after {
   animation: slideUnderlineReverse 0.3s ease-in-out forwards;
 }
 
