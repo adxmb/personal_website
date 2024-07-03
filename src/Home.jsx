@@ -51,48 +51,62 @@ export default function Home() {
     if (isMenuVisible) {
       menuItemsRef.current.classList.remove("visible");
       menuButtonRef.current.classList.remove("cross");
+      document.body.classList.remove("no-scroll");
     } else {
-      menuItemsRef.current.classList.add("visible");
+      setTimeout(() => {
+        menuItemsRef.current.classList.add("visible");
+      }, 300);
       menuButtonRef.current.classList.add("cross");
+      document.body.classList.add("no-scroll");
     }
   };
 
   return (
     <div className="container">
-      <div ref={menuItemsRef} className="menu-items">
-        <a className="menu-item" href="/about" onMouseEnter={handleMouseEnter}>
-          About
-        </a>
-        <a
-          className="menu-item"
-          href="/experience"
-          onMouseEnter={handleMouseEnter}
+      <div className="menu">
+        <div ref={menuItemsRef} className="menu-items">
+          <a className="menu-item" href="/" onMouseEnter={handleMouseEnter}>
+            Home
+          </a>
+          <a
+            className="menu-item"
+            href="/about"
+            onMouseEnter={handleMouseEnter}
+          >
+            About
+          </a>
+          <a
+            className="menu-item"
+            href="/experience"
+            onMouseEnter={handleMouseEnter}
+          >
+            Experience
+          </a>
+          <a
+            className="menu-item"
+            href="/projects"
+            onMouseEnter={handleMouseEnter}
+          >
+            Projects
+          </a>
+          <a
+            className="menu-item"
+            href="/contact"
+            onMouseEnter={handleMouseEnter}
+          >
+            Contact
+          </a>
+        </div>
+        <div
+          ref={menuButtonRef}
+          class="menu-button fade-in"
+          onClick={toggleMenuVisibility}
         >
-          Experience
-        </a>
-        <a
-          className="menu-item"
-          href="/projects"
-          onMouseEnter={handleMouseEnter}
-        >
-          Projects
-        </a>
-        <a
-          className="menu-item"
-          href="/contact"
-          onMouseEnter={handleMouseEnter}
-        >
-          Contact
-        </a>
-      </div>
-      <div
-        ref={menuButtonRef}
-        class="menu-button fade-in"
-        onClick={toggleMenuVisibility}
-      >
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div className='menu-strip $(isMenuVisible ? "" : "")'></div>
       </div>
       <div
         className={`overlay ${isMenuVisible ? "visible" : ""}`}
