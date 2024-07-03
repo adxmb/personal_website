@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import MenuItems from "./MenuItems";
 import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
@@ -13,6 +14,10 @@ export default function Home() {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const menuItemsRef = useRef(null);
   const menuButtonRef = useRef(null);
+
+  useEffect(() => {
+    menuItemsRef.current = document.querySelector(".menu-items");
+  }, []);
 
   useEffect(() => {
     if (swiperRef.current) {
@@ -61,42 +66,23 @@ export default function Home() {
     }
   };
 
+  const items = [
+    { name: "Home", link: "/" },
+    { name: "About", link: "/about" },
+    { name: "Experience", link: "/experience" },
+    { name: "Projects", link: "/projects" },
+    { name: "Contact", link: "/contact" },
+    { name: "Links", link: "/" },
+  ];
+
   return (
     <div className="container">
       <div className="menu">
-        <div ref={menuItemsRef} className="menu-items">
-          <a className="menu-item" href="/" onMouseEnter={handleMouseEnter}>
-            Home
-          </a>
-          <a
-            className="menu-item"
-            href="/about"
-            onMouseEnter={handleMouseEnter}
-          >
-            About
-          </a>
-          <a
-            className="menu-item"
-            href="/experience"
-            onMouseEnter={handleMouseEnter}
-          >
-            Experience
-          </a>
-          <a
-            className="menu-item"
-            href="/projects"
-            onMouseEnter={handleMouseEnter}
-          >
-            Projects
-          </a>
-          <a
-            className="menu-item"
-            href="/contact"
-            onMouseEnter={handleMouseEnter}
-          >
-            Contact
-          </a>
-        </div>
+        <MenuItems
+          items={items}
+          isVisible={isMenuVisible}
+          onMouseEnter={handleMouseEnter}
+        />
         <div
           ref={menuButtonRef}
           class="menu-button fade-in"
@@ -106,7 +92,6 @@ export default function Home() {
           <div class="bar"></div>
           <div class="bar"></div>
         </div>
-        <div className='menu-strip $(isMenuVisible ? "" : "")'></div>
       </div>
       <div
         className={`overlay ${isMenuVisible ? "visible" : ""}`}
@@ -159,6 +144,13 @@ export default function Home() {
           <div loading="lazy">
             <a href="/contact" className="hover-off">
               Contact
+            </a>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slide">
+          <div loading="lazy">
+            <a href="/" className="hover-off">
+              Links
             </a>
           </div>
         </SwiperSlide>
