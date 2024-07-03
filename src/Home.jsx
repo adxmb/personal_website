@@ -11,6 +11,8 @@ export default function Home() {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [fadeIn, setFadeIn] = useState(false);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const menuItemsRef = useRef(null);
+  const menuButtonRef = useRef(null);
 
   useEffect(() => {
     if (swiperRef.current) {
@@ -46,28 +48,56 @@ export default function Home() {
 
   const toggleMenuVisibility = (e) => {
     setIsMenuVisible(!isMenuVisible);
-    isMenuVisible
-      ? e.target.classList.remove("cross")
-      : e.target.classList.add("cross");
+    if (isMenuVisible) {
+      menuItemsRef.current.classList.remove("visible");
+      menuButtonRef.current.classList.remove("cross");
+    } else {
+      menuItemsRef.current.classList.add("visible");
+      menuButtonRef.current.classList.add("cross");
+    }
   };
 
   return (
     <div className="container">
-      <div class="menu">
-        {isMenuVisible && (
-          <div className="menu-items">
-            <a href="/about">About</a>
-            <a href="/experience">Experience</a>
-            <a href="/projects">Projects</a>
-            <a href="/contact">Contact</a>
-          </div>
-        )}
+      <div ref={menuItemsRef} className="menu-items">
+        <a className="menu-item" href="/about" onMouseEnter={handleMouseEnter}>
+          About
+        </a>
+        <a
+          className="menu-item"
+          href="/experience"
+          onMouseEnter={handleMouseEnter}
+        >
+          Experience
+        </a>
+        <a
+          className="menu-item"
+          href="/projects"
+          onMouseEnter={handleMouseEnter}
+        >
+          Projects
+        </a>
+        <a
+          className="menu-item"
+          href="/contact"
+          onMouseEnter={handleMouseEnter}
+        >
+          Contact
+        </a>
       </div>
-      <div class="menu-button fade-in" onClick={toggleMenuVisibility}>
+      <div
+        ref={menuButtonRef}
+        class="menu-button fade-in"
+        onClick={toggleMenuVisibility}
+      >
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
+      <div
+        className={`overlay ${isMenuVisible ? "visible" : ""}`}
+        onClick={toggleMenuVisibility}
+      ></div>
       <Swiper
         effect={"cube"}
         cubeEffect={{
