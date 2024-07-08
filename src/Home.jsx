@@ -66,8 +66,7 @@ export default function Home() {
     }
   };
 
-  const items = [
-    { name: "Home", link: "/" },
+  const pages = [
     { name: "About", link: "/about" },
     { name: "Experience", link: "/experience" },
     { name: "Projects", link: "/projects" },
@@ -79,7 +78,7 @@ export default function Home() {
     <div className="container">
       <div className="menu">
         <MenuItems
-          items={items}
+          items={pages}
           isVisible={isMenuVisible}
           onMouseEnter={handleMouseEnter}
         />
@@ -126,34 +125,19 @@ export default function Home() {
             </a>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div loading="lazy">
-            <a href="/experience" className="hover-off">
-              Skills and Experience
-            </a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div loading="lazy">
-            <a href="/projects" className="hover-off">
-              Projects
-            </a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div loading="lazy">
-            <a href="/contact" className="hover-off">
-              Contact
-            </a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div loading="lazy">
-            <a href="/" className="hover-off">
-              Links
-            </a>
-          </div>
-        </SwiperSlide>
+        {pages.map((item) => (
+          <SwiperSlide className="swiper-slide">
+            <div loading="lazy">
+              <a
+                href={item.link}
+                className="hover-off"
+                onMouseEnter={handleMouseEnter}
+              >
+                {item.name}
+              </a>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

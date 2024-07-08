@@ -3,6 +3,9 @@ import React from "react";
 const MenuItems = ({ items, isVisible, onMouseEnter }) => {
   return (
     <div className={`menu-items ${isVisible ? "visible" : ""}`}>
+      <a className="menu-item" href="/" onMouseEnter={onMouseEnter}>
+        Home
+      </a>
       {items.map((item, index) => (
         <a
           key={index}
