@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import MenuItems from "./MenuItems";
+import { EffectCube, Mousewheel } from "swiper/modules";
+
+import MenuItems from "./components/MenuItems";
+
 import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
-import "./styles.css";
-import { EffectCube, Mousewheel } from "swiper/modules";
+import "../styles.css";
 
+// Component for the home/landing page
 export default function Home() {
   const swiperRef = useRef(null);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
@@ -19,6 +22,7 @@ export default function Home() {
     menuItemsRef.current = document.querySelector(".menu-items");
   }, []);
 
+  // Updating the active slide when slide changes
   useEffect(() => {
     if (swiperRef.current) {
       swiperRef.current.swiper.on("slideChange", () => {
@@ -27,6 +31,7 @@ export default function Home() {
     }
   }, []);
 
+  // Maintains the active slide when the window is resized
   useEffect(() => {
     const handleResize = () => {
       if (swiperRef.current) {
@@ -47,10 +52,12 @@ export default function Home() {
     setFadeIn(true);
   }, []);
 
+  // Adds the reverse underline animation when the mouse enters
   const handleMouseEnter = (e) => {
     e.target.classList.add("hover-off");
   };
 
+  // Toggles the menu visibility and the menu icon
   const toggleMenuVisibility = (e) => {
     setIsMenuVisible(!isMenuVisible);
     if (isMenuVisible) {
@@ -58,6 +65,7 @@ export default function Home() {
       menuButtonRef.current.classList.remove("cross");
       document.body.classList.remove("no-scroll");
     } else {
+      // Delay for aesthetics
       setTimeout(() => {
         menuItemsRef.current.classList.add("visible");
       }, 300);
@@ -66,12 +74,14 @@ export default function Home() {
     }
   };
 
+  // Map of the pages for the slides and menu with their links
   const pages = [
+    { name: "Home", link: "/" },
     { name: "About", link: "/about" },
     { name: "Experience", link: "/experience" },
     { name: "Projects", link: "/projects" },
     { name: "Contact", link: "/contact" },
-    { name: "Links", link: "/" },
+    { name: "Links", link: "/links" },
   ];
 
   return (
@@ -117,7 +127,7 @@ export default function Home() {
         <SwiperSlide className="swiper-slide">
           <div loading="lazy">
             <a
-              href="/about"
+              href="/"
               className={fadeIn ? "fade-in" : ""}
               onMouseEnter={handleMouseEnter}
             >
@@ -125,7 +135,7 @@ export default function Home() {
             </a>
           </div>
         </SwiperSlide>
-        {pages.map((item) => (
+        {pages.slice(1).map((item) => (
           <SwiperSlide className="swiper-slide">
             <div loading="lazy">
               <a
