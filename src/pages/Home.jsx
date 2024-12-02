@@ -2,12 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCube, Mousewheel } from "swiper/modules";
 
-import MenuItems from "./components/MenuItems";
+import MenuItems from "../components/MenuItems";
 
 import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 import "../styles.css";
+import { IconCloud } from "../components/IconCloud";
 
 // Component for the home/landing page
 export default function Home() {
@@ -35,7 +36,6 @@ export default function Home() {
   useEffect(() => {
     const handleResize = () => {
       if (swiperRef.current) {
-        swiperRef.current.swiper.params.slidesPerView = 1;
         swiperRef.current.swiper.update();
         swiperRef.current.swiper.slideTo(activeSlideIndex, 0, false);
       }
@@ -79,9 +79,34 @@ export default function Home() {
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
     { name: "Experience", link: "/experience" },
+    { name: "TechStack", link: "/techstack" },
     { name: "Projects", link: "/projects" },
     { name: "Contact", link: "/contact" },
     { name: "Links", link: "/links" },
+  ];
+
+  const iconSlugs = [
+    "apache",
+    "c",
+    "css3",
+    "git",
+    "github",
+    "hibernate",
+    "html5",
+    "java",
+    "javascript",
+    "junit5",
+    "nodedotjs",
+    "npm",
+    "openai",
+    "perl",
+    "postgresql",
+    "python",
+    "r",
+    "react",
+    "typescript",
+    "visualstudiocode",
+    "wireshark",
   ];
 
   return (
@@ -116,7 +141,7 @@ export default function Home() {
         }}
         direction={"vertical"}
         mousewheel={true}
-        speed={1000}
+        speed={1200}
         loop={true}
         lazy={true}
         modules={[EffectCube, Mousewheel]}
@@ -135,6 +160,7 @@ export default function Home() {
             </a>
           </div>
         </SwiperSlide>
+        {/* Creating slides in Home.jsx to retain swiper cube properties */}
         {pages.slice(1).map((item) => (
           <SwiperSlide className="swiper-slide">
             <div loading="lazy">

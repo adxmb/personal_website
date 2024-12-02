@@ -134,9 +134,10 @@ body.no-scroll {
   font-size: 20px;
   text-decoration: none;
   color: #000;
+  z-index: 100;
   opacity: 0;
-  transition: opacity 2s cubic-bezier(0.25, 1, 0.5, 1) 0.5s;
-  transition-delay: 0.3s;
+  transition: opacity 2.4s cubic-bezier(0.25, 1, 0.5, 1) 0.5s;
+  transition-delay: 0.8s;
 }
 
 .menu-item::after {
@@ -147,10 +148,11 @@ body.no-scroll {
   width: 0%;
   height: 1px;
   background-color: #000;
-  transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .menu-items.visible .menu-item {
+  z-index: 102;
   opacity: 1;
 }
 
@@ -160,7 +162,7 @@ body.no-scroll {
 }
 
 .menu-item:not(.hover-off):not(:hover)::after {
-  transition-delay: 0.3s;
+  transition-delay: 0.2s;
 }
 
 .menu-item .hover-off:not(:hover)::after {

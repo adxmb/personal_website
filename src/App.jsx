@@ -5,6 +5,7 @@ import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Links from "./pages/Links";
+import TechStack from "./pages/TechStack";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/experience" element={<Experience />} />
+        <Route path="/techstack" element={<TechStack />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/links" element={<Links />} />
