@@ -135,9 +135,6 @@ body.no-scroll {
   text-decoration: none;
   color: #000;
   z-index: 100;
-  opacity: 0;
-  transition: opacity 2.4s cubic-bezier(0.25, 1, 0.5, 1) 0.5s;
-  transition-delay: 0.8s;
 }
 
 .menu-item::after {
@@ -148,7 +145,7 @@ body.no-scroll {
   width: 0%;
   height: 1px;
   background-color: #000;
-  transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: width 0.1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .menu-items.visible .menu-item {
@@ -162,7 +159,7 @@ body.no-scroll {
 }
 
 .menu-item:not(.hover-off):not(:hover)::after {
-  transition-delay: 0.2s;
+  transition-delay: 0.5s;
 }
 
 .menu-item .hover-off:not(:hover)::after {
@@ -181,7 +178,7 @@ body.no-scroll {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 17, 61, 0.349);
+  background: rgba(0, 10, 50, 0.15);
   z-index: 100;
   pointer-events: none;
   opacity: 0;

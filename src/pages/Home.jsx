@@ -8,7 +8,6 @@ import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 import "../styles.css";
-import { IconCloud } from "../components/IconCloud";
 
 // Component for the home/landing page
 export default function Home() {
@@ -83,30 +82,6 @@ export default function Home() {
     { name: "Projects", link: "/projects" },
     { name: "Contact", link: "/contact" },
     { name: "Links", link: "/links" },
-  ];
-
-  const iconSlugs = [
-    "apache",
-    "c",
-    "css3",
-    "git",
-    "github",
-    "hibernate",
-    "html5",
-    "java",
-    "javascript",
-    "junit5",
-    "nodedotjs",
-    "npm",
-    "openai",
-    "perl",
-    "postgresql",
-    "python",
-    "r",
-    "react",
-    "typescript",
-    "visualstudiocode",
-    "wireshark",
   ];
 
   return (
