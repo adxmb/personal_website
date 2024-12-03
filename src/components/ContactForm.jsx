@@ -16,9 +16,10 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const serviceId = ""; // Add your EmailJS service ID
-    const templateId = ""; // Add your EmailJS template ID
-    const userId = ""; // Add your EmailJS user ID
+    // To be filled in
+    const serviceId = "";
+    const templateId = "";
+    const userId = "";
 
     emailjs.send(serviceId, templateId, formState, userId).then(
       (result) => {

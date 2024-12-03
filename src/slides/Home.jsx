@@ -113,7 +113,7 @@ export default function Home() {
       ></div>
 
       <div className="slide" id="landing">
-        <div loading="lazy">
+        <div loading="lazy" className="landing">
           <h1 className={fadeIn ? "fade-in" : ""}>Adam Bodicoat</h1>
         </div>
       </div>
@@ -121,35 +121,45 @@ export default function Home() {
       <div className="slide" id="about">
         <div loading="lazy">
           <h1>About</h1>
-          <About />
+          <div className="content">
+            <About />
+          </div>
         </div>
       </div>
 
       <div className="slide" id="techstack">
         <div loading="lazy">
-          <h1>Tech Stack</h1>
-          <TechStack />
+          <h1>Tech Stack, Tools, and Technologies</h1>
+          <div className="content">
+            <TechStack />
+          </div>
         </div>
       </div>
 
       <div className="slide" id="projects">
         <div loading="lazy">
           <h1>Projects</h1>
-          <Projects />
+          <div className="content">
+            <Projects />
+          </div>
         </div>
       </div>
 
       <div className="slide" id="contact">
         <div loading="lazy">
           <h1>Contact</h1>
-          <Contact />
+          <div className="content">
+            <Contact />
+          </div>
         </div>
       </div>
 
       <div className="slide" id="links">
         <div loading="lazy">
           <h1>Links</h1>
-          <Links />
+          <div className="content">
+            <Links />
+          </div>
         </div>
       </div>
     </div>

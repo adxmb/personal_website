@@ -29,7 +29,6 @@ const TechStack = () => {
 
   return (
     <div>
-      <a>Tech Stack, Tools, and Technologies</a>
       <IconCloud iconSlugs={iconSlugs} />
     </div>
   );
