@@ -13,6 +13,7 @@ const TechStack = () => {
     "java",
     "javascript",
     "junit5",
+    "mathworks",
     "nodedotjs",
     "npm",
     "openai",
@@ -28,7 +29,7 @@ const TechStack = () => {
 
   return (
     <div>
-      <h1>Tech Stack, Tools, and Technologies</h1>
+      <a>Tech Stack, Tools, and Technologies</a>
       <IconCloud iconSlugs={iconSlugs} />
     </div>
   );
