@@ -15,6 +15,7 @@ export default function Home() {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const menuItemsRef = useRef(null);
   const menuButtonRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     menuItemsRef.current = document.querySelector(".menu-items");

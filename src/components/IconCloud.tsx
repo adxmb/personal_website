@@ -14,10 +14,10 @@ export const cloudProps: Omit<ICloud, "children"> = {
   containerProps: {
     style: {
       display: "flex",
-      justifyContent: "center",
+      justifyContent: "flex-start",
       alignItems: "center",
       width: "100%",
-      paddingTop: 40,
+      paddingTop: "5vh",
     },
   },
   options: {

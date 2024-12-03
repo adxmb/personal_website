@@ -37,72 +37,73 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="container custom-border mx-auto p-6">
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex flex-col space-y-4" style={{ width: "50%" }}>
-            <div className="flex flex-col space-y-1">
-              <label
-                htmlFor="name"
-                className="block text-m font-medium text-700"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                className="input input-bordered w-full"
-                placeholder="Enter your name"
-                value={formState.name}
-                required={true}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="flex flex-col space-y-1">
-              <label
-                htmlFor="email"
-                className="block text-m font-medium text-700"
-              >
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                className="input input-bordered w-full"
-                placeholder="Enter your email"
-                value={formState.email}
-                required={true}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="flex flex-col space-y-1">
-              <label
-                htmlFor="message"
-                className="block text-m font-medium text-700"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                className="input input-bordered w-full h-40"
-                placeholder="Enter your message"
-                value={formState.message}
-                required={true}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="flex justify-left">
-            <button type="submit" className="btn btn-outline font-sans">
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+    // <div className="flex justify-center">
+    //   <div className="container custom-border mx-auto p-6">
+    //     <form onSubmit={handleSubmit} className="space-y-4">
+    //       <div className="flex flex-col space-y-4" style={{ width: "50%" }}>
+    //         <div className="flex flex-col space-y-1">
+    //           <label
+    //             htmlFor="name"
+    //             className="block text-m font-medium text-700"
+    //           >
+    //             Name
+    //           </label>
+    //           <input
+    //             id="name"
+    //             name="name"
+    //             type="text"
+    //             className="input input-bordered w-full"
+    //             placeholder="Enter your name"
+    //             value={formState.name}
+    //             required={true}
+    //             onChange={handleChange}
+    //           />
+    //         </div>
+    //         <div className="flex flex-col space-y-1">
+    //           <label
+    //             htmlFor="email"
+    //             className="block text-m font-medium text-700"
+    //           >
+    //             Email
+    //           </label>
+    //           <input
+    //             id="email"
+    //             name="email"
+    //             type="email"
+    //             className="input input-bordered w-full"
+    //             placeholder="Enter your email"
+    //             value={formState.email}
+    //             required={true}
+    //             onChange={handleChange}
+    //           />
+    //         </div>
+    //         <div className="flex flex-col space-y-1">
+    //           <label
+    //             htmlFor="message"
+    //             className="block text-m font-medium text-700"
+    //           >
+    //             Message
+    //           </label>
+    //           <textarea
+    //             id="message"
+    //             name="message"
+    //             className="input input-bordered w-full h-40"
+    //             placeholder="Enter your message"
+    //             value={formState.message}
+    //             required={true}
+    //             onChange={handleChange}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="flex justify-left">
+    //         <button type="submit" className="btn btn-outline font-sans">
+    //           Submit
+    //         </button>
+    //       </div>
+    //     </form>
+    //   </div>
+    // </div>
+    <></>
   );
 };
 
