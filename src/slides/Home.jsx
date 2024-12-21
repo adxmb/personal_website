@@ -15,7 +15,6 @@ export default function Home() {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const menuItemsRef = useRef(null);
   const menuButtonRef = useRef(null);
-  const containerRef = useRef(null);
 
   useEffect(() => {
     menuItemsRef.current = document.querySelector(".menu-items");
@@ -112,7 +111,6 @@ export default function Home() {
         className={`overlay ${isMenuVisible ? "visible" : ""}`}
         onClick={toggleMenuVisibility}
       ></div>
-
       <div className="slide" id="landing">
         <div loading="lazy" className="landing">
           <h1 className={fadeIn ? "fade-in" : ""}>Adam Bodicoat</h1>

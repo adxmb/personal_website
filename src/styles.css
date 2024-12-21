@@ -4,22 +4,26 @@
 html,
 body {
   position: relative;
-  height: 100vh;
   scroll-behavior: smooth;
 }
 
 body {
   position: relative;
-  background: #eee;
+  background: #fff;
   font-family: "Courier New", Courier, monospace;
-  font-size: 14px;
+  font-size: 1rem;
   color: #000;
   margin: 0;
   padding: 0;
+  height: 0vh;
 }
 
 body.no-scroll {
   overflow: hidden;
+}
+
+* {
+  cursor: none !important;
 }
 
 .container {
@@ -271,4 +275,12 @@ body.no-scroll {
 
 .fade-in {
   animation: fadeIn 1.5s ease-in-out;
+}
+
+.body-text {
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.6;
+  padding-top: 20px;
+  max-width: 800px;
 }

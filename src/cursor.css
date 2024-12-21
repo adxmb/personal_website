@@ -1,0 +1,16 @@
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  border: 2px solid rgba(0, 0, 0, 1);
+  background-color: transparent;
+  transform: translate(-50%, -50%);
+  transition: width 0.1s, height 0.1s;
+  z-index: 9999;
+}
+
+.custom-cursor.shrunk {
+  background-color: rgba(0, 0, 0, 0.3);
+}
